@@ -135,8 +135,8 @@ package body Almeida_Pineda is
 
             Old_Error := (if Mode = Synchronous then Net.Errors (I) else Next_Errors (I));
             
-            -- Recurrent backprop equation: y_i = f'(net_i) * sum(w_ji * y_j) + J_i
-            Next_Errors (I) := Deriv * Sum + Injection;
+            -- Recurrent backprop equation: E_i = f'(net_i) * (sum(w_ji * E_j) + J_i)
+            Next_Errors (I) := Deriv * (Sum + Injection);
 
             if abs (Next_Errors (I) - Old_Error) > Max_Diff then
                Max_Diff := abs (Next_Errors (I) - Old_Error);
