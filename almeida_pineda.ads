@@ -13,10 +13,10 @@ package Almeida_Pineda is
 
    -- Network state containing weights, biases, states, and error signals
    type Network (Size : Node_Count) is record
-      Weights : Matrix (1 .. Size, 1 .. Size) := (others => (others => 0.0));
-      Biases  : Vector (1 .. Size) := (others => 0.0);
-      States  : Vector (1 .. Size) := (others => 0.0);
-      Errors  : Vector (1 .. Size) := (others => 0.0);
+      Weights : Matrix (1 .. Size, 1 .. Size) := [others => [others => 0.0]];
+      Biases  : Vector (1 .. Size) := [others => 0.0];
+      States  : Vector (1 .. Size) := [others => 0.0];
+      Errors  : Vector (1 .. Size) := [others => 0.0];
    end record;
 
    -- Update modes for the recurrent relaxation process
